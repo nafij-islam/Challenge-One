@@ -1,5 +1,3 @@
-// mongodb+srv://backend:g2tvwLt5sfVgV9Bv@cluster0.mfbog0c.mongodb.net/backend=Cluster0
-
 require("node:dns").setServers(["1.1.1.1", "8.8.8.8"]);
 require('dotenv').config()
 const express = require("express");
