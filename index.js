@@ -3,6 +3,8 @@ require('dotenv').config()
 const express = require("express");
 const authRoute = require("./routes/authRoutes")
 const dbConnection = require("./config/DbConnection");
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./config/swagger");
 
 dbConnection();
 
@@ -11,6 +13,12 @@ const app = express();
 console.log(process.env.MONGODB_USERNAME)
 
 app.use(express.json());
+
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec)
+);
 
 app.use('/api/v1/auth', authRoute)
 
