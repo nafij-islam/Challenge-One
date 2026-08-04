@@ -2,6 +2,7 @@ require("node:dns").setServers(["1.1.1.1", "8.8.8.8"]);
 require('dotenv').config()
 const express = require("express");
 const authRoute = require("./routes/authRoutes")
+const enrollmentRoutes = require("./routes/enrollmentRoutes");
 const dbConnection = require("./config/DbConnection");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./config/swagger");
@@ -20,7 +21,8 @@ app.use(
   swaggerUi.setup(swaggerSpec)
 );
 
-app.use('/api/v1/auth', authRoute)
+app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/enrollments', enrollmentRoutes);
 
 app.listen(5000, () => {
   console.log("server is Running");
