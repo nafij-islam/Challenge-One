@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
     if (!name || !email || !phone || !courseName) {
       return res.status(400).json({
         success: false,
-        message: "All fields (name, email, phone, courseName) are required.",
+        message: "All fields are required.",
       });
     }
 

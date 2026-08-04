@@ -69,8 +69,6 @@ const router = express.Router();
  *         description: Internal server error
  */
 
-
-
 router.post("/register", (req, res) => {
   const { name, email, password } = req.body;
 
